@@ -5,7 +5,7 @@ on:
       repo-name: 
         description: 'Name of the repository to be created'
         required: true
-        default: ''
+        default: 'WorkFlowTestRepo1'
 
 jobs:
   create-repository:
