@@ -1,12 +1,6 @@
 name: Create Branch
 on: 
   workflow_dispatch:
-    inputs:
-      repo-name: 
-        description: 'Name of the repository to be created'
-        required: true
-        default: 'WorkFlowTestRepo1'
-
 jobs:
   create-repository:
     runs-on: ubuntu-latest
@@ -17,5 +11,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: 'release-notes'
+          branch: 'Test1'
           sha: '${{ github.event.pull_request.head.sha }}'          
