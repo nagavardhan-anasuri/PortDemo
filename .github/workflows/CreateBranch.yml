@@ -1,18 +1,16 @@
-name: 'Create Branch'
-description: 'Creates a branch'
-author: 'Peter Grainger (peter@grainger)'
-branding:
-  icon: 'git-branch'
-  color: 'green'
-inputs:
-  branch:
-    description: 'The branch to create'
-    default: 'release-candidate'
-  sha:
-    description: 'The SHA1 value for the branch reference'
-outputs:
-  created:
-    description: 'Boolean value representing whether or not a new branch was created.'
-runs:
-  using: 'node20'
-  main: 'dist/index.js'
+name: Create Repo
+on: 
+  workflow_dispatch:
+    inputs:
+      repo-name: 
+        description: 'Name of the repository to be created'
+        required: true
+        default: 'WorkFlowTestRepo1'
+
+jobs:
+  create-repository:
+    runs-on: ubuntu-latest
+    name: Creating Organization Repository
+    steps:      
+      - name: Create Branch
+        uses: peterjgrainger/action-create-branch@v3.0.0          
